@@ -33,9 +33,14 @@ import {MatTreeModule} from '@angular/material/tree';
 import { SortByPipe } from './pipes/sort.pipe';
 import { EntrySearchPipe } from './pipes/entry-search.pipe';
 import {MatDialogModule} from '@angular/material/dialog';
-import { FeedbackCollectionComponent } from './feedback-collection/feedback-collection.component';
-import { ParentComponent } from './DataPass/parent/parent.component';
-import { ChildComponent } from './DataPass/child/child.component';
+import { ETicketingComponent } from './e-ticketing/e-ticketing.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BusSeatComponent } from './bus-seat/bus-seat.component';
+import { CustomerInfoComponent } from './customer-info/customer-info.component';
+
+
 
 
 @NgModule({
@@ -44,9 +49,9 @@ import { ChildComponent } from './DataPass/child/child.component';
     PageNotFoundComponent,
     SortByPipe,
     EntrySearchPipe,
-    FeedbackCollectionComponent,
-    ParentComponent,
-    ChildComponent
+    ETicketingComponent,
+    BusSeatComponent,
+    CustomerInfoComponent
   ],
   imports: [
     NgSelectModule,
@@ -74,10 +79,13 @@ import { ChildComponent } from './DataPass/child/child.component';
     MatSortModule,
     MatPaginatorModule,
     MatTreeModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
   ],
   providers: [
-    
+    MatNativeDateModule 
   ],
   bootstrap: [AppComponent]
 })

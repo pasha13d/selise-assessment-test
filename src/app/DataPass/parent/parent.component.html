@@ -1,8 +1,0 @@
-<div class="form-group col-md-12" style="margin-left: 30px; margin-top: 30px;">
-    <input type="text" class="form-control col-md-2" placeholder="Posts" name="posts" [(ngModel)]="posts">
-</div>
-<div>
-    <button type="submit" style="margin-left: 45px;" class="btn btn-sm btn-primary" (click)="AddPosts(posts)">Add Posts</button>
-</div>
-
-<app-child [childPosts]="parentPosts" (passedEvent)="childEvent($event)"></app-child>

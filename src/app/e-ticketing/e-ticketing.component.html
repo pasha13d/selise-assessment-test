@@ -1,0 +1,59 @@
+<mat-card style="background-color: pink; border: 1px solid red; margin-top: 5px;">
+    <form [formGroup]="eTicketForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label style="color: white;">From</mat-label>
+            <mat-select formControlName="fromDist">
+            <mat-option *ngFor="let district of districtList" [value]="district.id">
+                {{district.name}}
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field style="margin-left: 10px;">
+            <mat-label style="color: white;">To</mat-label>
+            <mat-select formControlName="toDist">
+            <mat-option *ngFor="let district of districtList" [value]="district.id">
+                {{district.name}}
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field style="margin-left: 10px;">
+            <mat-label style="color: white;">Journey Date</mat-label>
+            <input type="date" matInput autocomplete="off" [min]="minDate | date:'yyyy-MM-dd'" [max]="maxDate" formControlName="journeyDate">
+        </mat-form-field>
+
+        <button type="submit" style="margin-left: 10px;" class="btn btn-sm btn-danger">Search Buses</button>
+    </form>
+</mat-card>
+
+
+<div class="container-fluid col-md-12" style="display: flex; background-color: gray;" *ngFor="let data of dataSource">
+    <div class="col-md-3 divView">
+        <ul>{{data.busName}}</ul>
+        <ul>{{data.busNo}}</ul>
+        <ul>{{data.busType}}</ul>
+        <ul>Starting Point: {{data.startPoint}}</ul>
+        <ul>End Point: {{data.endPoint}}</ul>
+    </div>
+    <div class="col-md-2 d-flex align-items-center justify-content-center divView">
+        <ul>Departure Time: {{data.departureTime}}</ul>
+    </div>
+    <div class="col-md-2 d-flex align-items-center justify-content-center divView">
+        <ul>Arrival Time: {{data.arrivalTime}}</ul>
+    </div>
+    <div class="col-md-2 d-flex align-items-center justify-content-center divView">
+        <ul>Seats Available: {{data.totalSeat}}</ul>
+    </div>
+    <div class="col-md-3 d-flex align-items-center justify-content-center divView">
+        <div class="col-md-6">
+            <ul>৳{{data.seatPrice}}</ul>
+        </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-sm btn-danger" (click)="showSeat(data)">View Seats</button>
+            <button type="button" class="btn btn-link" style="color: red; padding-left: 0px;">Cancellation Policy</button>
+        </div>
+    </div>
+</div>
+
+

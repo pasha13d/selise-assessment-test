@@ -1,0 +1,5 @@
+/* Asterisk required css */
+label.asterisk-if-mandatory::after {
+    content: " *";
+    color: red;
+}

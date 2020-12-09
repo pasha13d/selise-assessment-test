@@ -5,17 +5,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class EntrySearchPipe implements PipeTransform {
-    transform(items: any[], postSearch: string){
+    transform(items: any[], fromSearch: string, toSearch: string){
         if (items && items.length){
             return items.filter(item =>{
-                if (postSearch && item.PostTitle.toLowerCase().indexOf(postSearch.toLowerCase()) === -1){
+                if (fromSearch && item.From.toLowerCase().indexOf(fromSearch.toLowerCase()) === -1){
+                    return false;
+                }
+                if (toSearch && item.To.toLowerCase().indexOf(toSearch.toLowerCase()) === -1){
                     return false;
                 }
                 return true;
            })
         }
         else{
-            return items;
+            // return items;
+            return "Not Found"
         }
     }
 }

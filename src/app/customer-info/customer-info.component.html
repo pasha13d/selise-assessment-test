@@ -1,0 +1,24 @@
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <mat-form-field style="margin-left: 10px;">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput formControlName="name" [errorStateMatcher]="matcher" autocomplete="off">
+        <mat-error *ngIf="customerForm.get('name').hasError('required')">Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field style="margin-left: 10px;">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" autocomplete="off">  
+    </mat-form-field>
+    <mat-form-field style="margin-left: 10px;">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender" [errorStateMatcher]="matcher">
+        <mat-option *ngFor="let gen of gender" [value]="gen.id">
+            {{gen.type}}
+        </mat-option>
+        </mat-select>
+        <mat-error *ngIf="customerForm.get('gender').hasError('required')">Gender is required</mat-error>  
+    </mat-form-field>
+    <button type="submit" class="btn btn-sm btn-primary ml-2" [disabled]="customerForm.invalid">Save</button>
+</form>
+<mat-dialog-actions align="end" style="color: red;">
+    <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions> 

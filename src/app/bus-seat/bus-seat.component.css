@@ -1,0 +1,27 @@
+.seatBox {
+    width: auto; 
+    height: auto; 
+    border: 1px solid green;
+}
+
+/* Dashed border */
+.dashed {
+    border-bottom: 1px dashed #bbb;
+  }
+
+/* Asterisk required css */
+/* label.asterisk-if-mandatory::after {
+    content: " *";
+    color: red;
+} */
+
+/* ICON COLOR */
+.fa-columns {
+    color: #ccc;
+}
+
+.fa-columns.active {
+    color: violet;
+}
+
+
